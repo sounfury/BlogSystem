@@ -1,0 +1,256 @@
+/* 在线链接服务仅供平台体验和调试使用，平台不承诺服务的稳定性，企业客户需下载字体包自行发布使用并做好备份。 */
+* {
+    margin: 0;/* 重置内外边距 */
+    padding: 0;/* 重置内外边距 */
+    box-sizing: border-box;/* 重置盒模型 */
+    /* 字体无法选中 */
+    user-select: none;
+}
+body {
+    width:100%;
+    height:100vh;
+    display: flex;/*弹性布局，子元素自动排列*/
+    justify-content: center;/*子元素水平居中*/
+    align-items: center;/*子元素垂直居中*/
+    background-color: #f5f5f5;
+    color: #a0a5a8;
+    
+
+}
+.shell{
+    position: relative;
+    width: 1000px;
+    min-width: 1000px;   /* 最小宽度 */
+    min-height: 600px;
+    height: 600px;
+    padding: 25px;/* 内边距 */
+    background-color: #ecf0f3;
+    box-shadow: 10px 10px 10px #d1d9e6, -10px -10px 10px #f9f9f9;/*阴影，第一个参数是右下阴影，第二个参数是左上阴影，第三个参数是模糊距离，值越大越模糊，第四个参数是阴影的大小，值越大阴影越大*/
+    border-radius: 12px;/*圆角*/
+    overflow: hidden;/*溢出隐藏*/
+}
+ 
+
+/* 适配各种端（如移动端） */
+ @media (max-width: 1200px) {
+    .shell {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 1000px) {
+    .shell {
+        transform: scale(0.6);
+    }
+}
+
+@media (max-width: 800px) {
+    .shell {
+        transform: scale(0.5);
+    }
+}
+
+@media (max-width: 600px) {
+    .shell {
+        transform: scale(0.4);
+    }
+}
+.container {
+    display: flex;
+    justify-content: center;/*子元素水平居中*/
+    align-items: center;/*子元素垂直居中*/
+    position: absolute;/*绝对定位,让登入账号与注册账号重合，同时脱离位置，使weclome back上升到第一位，并且三者重合*/
+    top: 0;
+    width: 600px;
+    height: 100%;
+    padding: 25px;
+    background-color: #ecf0f3;
+    transition: 1.25s;
+}
+.form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;/*子元素垂直排列*/
+    width: 100%;
+    height: 100%;
+}
+.iconfont {
+    margin: 0 5px;/*第一个参数是上下边距，第二个参数是左右边距*/
+    border: rgba(0, 0, 0, 0.5) 2px solid;
+    border-radius: 50%;/*一个参数是圆角，两个参数是椭圆*/
+    font-size: 25px;/*字体大小*/
+    padding: 3px;/*内边距*/
+    opacity: 0.5;/*透明度*/
+    transition: 0.5s;/*过渡,即下面悬停时会0.5s再变黑色*/
+    
+}
+.iconfont:hover {/*悬停时*/
+    opacity: 1;/*选中元素不透明*/
+    transition: 0.15s;/*更改过渡时间*/
+    cursor: pointer;/*鼠标悬停时变成手型*/
+}
+.form_input {
+    width: 350px;/*宽度*/
+    height: 40px;/*高度*/
+    margin: 4px 0;/*上下边距*/
+    padding-left: 25px;/*左边距*/
+    font-size: 13px;/*字体大小*/
+    letter-spacing: 0.15px;/*字间距*/
+    border: none;/*无边框*/
+    outline: none;/*无轮廓*/
+    background-color: #ecf0f3;/*背景颜色*/
+    transition: 0.5s ease;/*过渡*/
+    border-radius: 8px;/*圆角*/
+    box-shadow: inset 2px 2px 4px #d1d9e6, inset -2px -2px 4px #f9f9f9;/*内阴影*/
+}
+.form_input:focus {/*表单获取焦点选中时*/
+    box-shadow: inset 4px 4px 4px #d1d9e6, inset -4px -4px 4px #f9f9f9;
+}
+.form_span {
+    margin-top: 30px;
+    margin-bottom: 12px;
+}
+.form_link {
+    color: #181818;
+    font-size: 15px;/*字体大小*/
+    margin-top: 25px;
+    border-bottom: 1px solid #a0a5a8;/*下划线*/
+    line-height: 2;/*行高*/
+}
+.title {
+    font-size: 34px;/*字体大小*/
+    font-weight: 700;/*字体粗细*/
+    line-height: 3;/*行高*/
+    color: #181818;
+    letter-spacing: 10px;/*字间距*/
+}
+.description {
+    font-size: 14px;/*字体大小*/
+    letter-spacing: 0.25px;/*字间距*/
+    text-align: center;/*文本居中*/
+    line-height: 1.6;
+}
+.button {
+    width: 180px;
+    height: 50px;
+    border-radius: 25px;/*圆角*/
+    margin-top: 50px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1.15px;/*字间距*/
+    background-color: #4B70E2;
+    color: #f9f9f9;/*字体颜色*/
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #f9f9f9;/*阴影*/
+    border: none;/*无边框*/
+    outline: none;/*无轮廓*/
+}
+.a-container {
+    z-index: 100;/*层级设为100，使其在最上层*/
+    left: calc(100% - 600px);/*左边距*/
+}
+.b-container {
+    left: calc(100% - 600px);
+    z-index: 0;
+}
+.switch {
+    display: flex;/*弹性布局，子元素自动排列*/
+    justify-content: center;/*子元素水平居中*/
+    align-items: center;/*子元素垂直居中*/
+    position: absolute;/*绝对定位*/
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 400px;
+    padding: 50px;/*内边距*/
+    z-index: 200;
+    transition: 1.25s;
+    background-color: #ecf0f3;
+    overflow: hidden;/*溢出隐藏*/
+    box-shadow: 4px 4px 10px #d1d9e6, -4px -4px 10px #d1d9e6;
+}
+.switch_circle {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;/*圆角*/
+    background-color: #ecf0f3;
+    box-shadow: inset 8px 8px 12px #b8bec7, inset -8px -8px 12px #fff;
+    bottom: -60%;/*因为值是负数，所以会上移*/
+    left: -60%;/*因为值是负数，所以会左移（-240/-400*0.6）*/
+    transition: 1.25s;
+}
+.switch_circle-t {
+        top: -30%;/*因为值是负数，所以会下移*/
+        left: 60%;
+        width: 300px;
+        height: 300px;
+}
+.switch_container {
+    display: flex;/*弹性布局，子元素自动排列*/
+    justify-content: center;/*子元素水平居中*/
+    align-items: center;/*子元素垂直居中*/
+    flex-direction: column;/*子元素垂直排列*/
+    position: absolute;/*绝对定位*/
+    width: 400px;
+    padding: 50px 55px;/*内边距*/
+    transition: 1.25s;
+}
+.switch_button {
+    cursor: pointer;
+}
+.switch_button:hover,/*回归按钮悬停时*/
+.submit:hover {/*注册与登陆的按钮悬停时*/
+    box-shadow: 6px 6px 10px #d1d9e6, -6px -6px 10px #f9f9f9;
+    transform: scale(0.985);
+    transition: 0.25s;
+}    
+.switch_button:active,/*回归按钮按下时*/
+.switch_button:focus {/*回归按钮选中时,模拟震动效果*/
+    box-shadow: 2px 2px 6px #d1d9e6, -2px -2px 6px #f9f9f9;
+    transform: scale(0.97);
+    transition: 0.25s;
+}
+.is-txr {
+    left: calc(100% - 400px);/*表示元素的左边缘距离其父元素的左边缘的距离为其父元素宽度减去 400px。(400-400=0px)*/
+    transition: 1.25s;/*变换后父级元素switch位置变为600（距左），虽然此时为0，但与原来位置变动了600px*/
+    transform-origin: left;
+}
+
+.is-txl {
+    left: 0;
+    transition: 1.25s;
+    transform-origin: right;
+}
+
+.is-z {
+    z-index: 200;
+    transition: 1.25s;
+}
+
+.is-hidden {
+    visibility: hidden;/*隐藏*/
+    opacity: 0;/*透明度为0*/
+    position: absolute;
+    transition: 1.25s;
+}
+
+.is-gx {
+    animation: is-gx 1.25s;
+}/*给了一个名字叫is-gx的动画，动画时间为1.25s，将width从400-500-400*/
+
+@keyframes is-gx {
+
+    0%,/*关键帧开始*/
+    10%,
+    100% {
+        width: 400px;
+    }/*关键帧结束*/
+
+    30%,
+    50% {
+        width: 500px;
+    }/*关键帧在50%时*/
+}         
+
+   
